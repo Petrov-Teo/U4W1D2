@@ -6,18 +6,26 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Inserisci una parola");
-        String text = scanner.nextLine();
-
-        StringBuilder newText = new StringBuilder();
-        int i = 0;
-        while (i < text.length()) {
-            newText.append(text.charAt(i));
-            if (i < text.length() - 1) {
-                newText.append(',');
+        while (true) {
+            System.out.println("Inserisci una parola (o \":q\" per uscire):");
+            String text = scanner.nextLine();
+            
+            if (text.equals(":q")) {
+                break;
             }
-            i++;
+
+            StringBuilder newText = new StringBuilder();
+            int i = 0;
+            while (i < text.length()) {
+                newText.append(text.charAt(i));
+                if (i < text.length() - 1) {
+                    newText.append(',');
+                }
+                i++;
+            }
+            System.out.println(newText.toString());
         }
-        System.out.println(newText.toString());
+
+        scanner.close();
     }
 }
